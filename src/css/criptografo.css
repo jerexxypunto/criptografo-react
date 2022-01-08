@@ -1,0 +1,14 @@
+.grid-container{
+    grid-template-rows: 300px;
+}
+
+.grid-container div{
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.grid-container button{
+    height: max-content;
+    position: relative;
+    top: 50%;
+}

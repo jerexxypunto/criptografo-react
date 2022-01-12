@@ -1,22 +1,31 @@
 import React,{useState} from 'react';
 import CriptoStyles from './../css/criptografo.css';
+import Box from './Box';
 
-function encriptar(texto) {
+let sal = "";
+
+function encriptar(inPutBox,outPutBox,depuracion) {
+    
+    // Parametros
     let codificado;
     let tipoDeAbc;
     let hasTilde = false ;
     let tilde = false;
     var letter;
-
     let leido = false;
+    let res = "";
+    // Fin de Parametros
+
+    // Abecedario minusculas
     const a_z = ["a", "b", "c", "d", "e", "f" , "g", "h", "i",
-        "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t",
-        "u", "v", "w", "x", "y", "z"];
+    "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t",
+    "u", "v", "w", "x", "y", "z"];
+
+    // Abecedario mayusculas
     const A_Z = ["A", "B", "C", "D", "E", "F" , "G", "H", "I",
     "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T",
         "U", "V", "W", "X", "Y", "Z"];
-
-    let textoOriginal = texto;
+    let textoOriginal = inPutBox
     for (let letter of textoOriginal) {
         // verifica mayusculas o minusculas
         if (letter == letter.toUpperCase()) {
@@ -27,7 +36,7 @@ function encriptar(texto) {
         if (textoOriginal[(textoOriginal.indexOf(letter) + 1)] == "'") {
             hasTilde = true;
         }
-        console.log("tilde: " + hasTilde);
+        if(depuracion) console.log("tilde: " + hasTilde);
         // quita los tildes y los guarda en var tilde
         switch (letter) {
             case "á":
@@ -78,7 +87,7 @@ function encriptar(texto) {
                 codificado = letter;
                 break;
         }
-        console.log("letra: " + letter)
+        if (depuracion) console.log("letra: " + letter);
         // comienza el ciclo
         for (const letraAbc of tipoDeAbc) {
             if (letter == letraAbc) { // compara letra iterada con letras en abc
@@ -138,7 +147,7 @@ function encriptar(texto) {
                     }
                     
                 }
-                console.log("Letra codificada: " + codificado);
+                if(depuracion) console.log("Letra codificada: " + codificado);
                 /*Guarda en let codificado la letra del abecedario
                  con la pocicion de (logitud de abc - posicion de letra iterada)*/
             }else if (letter == " ")
@@ -148,47 +157,29 @@ function encriptar(texto) {
                     codificado = letter;
                 }
         }
+        res += codificado;
+        outPutBox(res);
 
     }
-
-    return codificado;
 }
 
 const Criptografo = ()=>{
-    const [inputBox,changeSateInput] = useState('');
-    const [outputBox,changeSateOutput] = useState('');
-    
+    const [entrada, cambiarEntrada] = useState('');
+    const [salida, cambiarSalida]  = useState('');
+
     return(
         <div className='grid-container grid-col-1 grid-col-md-9 grid-col-lg-5 gap-5 text-light'>
-            <div className='grid-span-md-4 grid-span-lg-2'>
-                <h2>Input</h2>
-                <textarea
-                    className='w-100 h-100'
-                    value={inputBox}
-                    onChange={(e)=>{
-                        let contenidoBox = e.target.value;
-                        changeSateInput(contenidoBox);
-                        console.log(encriptar(contenidoBox));
-                    }}
-                 />
-            </div>
+            <Box nombre="Input" input={entrada} funcion={cambiarEntrada} />
             <button 
                 className='btn btn-gsc-verde'
-                onClick={encriptar}
+                onClick={()=>{
+                        encriptar(entrada,cambiarSalida,false);
+                }}
             >
                 Prosesar
             
             </button>
-            <div className='grid-span-md-4 grid-span-lg-2'>
-                <h2>Output</h2>
-                <textarea
-                    className='w-100 h-100'
-                    value={outputBox}
-                    onChange={(e)=>{
-                        changeSateOutput(e.target.value);
-                    }}
-                 />
-            </div>
+            <Box nombre="Output" input={salida} funcion={cambiarSalida} />
         </div>
     );
 }

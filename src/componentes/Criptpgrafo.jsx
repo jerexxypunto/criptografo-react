@@ -1,11 +1,14 @@
 import React,{useState} from 'react';
 import CriptoStyles from './../css/criptografo.css';
+import ButtonDev from './BotonDev';
 import Box from './Box';
 
 let sal = "";
 
 function encriptar(inPutBox,outPutBox,depuracion) {
     
+    outPutBox("");
+
     // Parametros
     let codificado;
     let tipoDeAbc;
@@ -166,21 +169,25 @@ function encriptar(inPutBox,outPutBox,depuracion) {
 const Criptografo = ()=>{
     const [entrada, cambiarEntrada] = useState('');
     const [salida, cambiarSalida]  = useState('');
+    const [depuracion,cambiarDepuracion] = useState(false);
 
     return(
-        <div className='grid-container grid-col-1 grid-col-md-9 grid-col-lg-5 gap-5 text-light'>
-            <Box nombre="Input" input={entrada} funcion={cambiarEntrada} />
-            <button 
-                className='btn btn-gsc-verde'
-                onClick={()=>{
-                        encriptar(entrada,cambiarSalida,false);
-                }}
-            >
-                Prosesar
-            
-            </button>
-            <Box nombre="Output" input={salida} funcion={cambiarSalida} />
-        </div>
+        <>
+            <div className='grid-container grid-col-1 grid-col-md-9 grid-col-lg-5 gap-5 text-light'>
+                <Box nombre="Input" input={entrada} funcion={cambiarEntrada} />
+                <button 
+                    className='btn btn-gsc-verde'
+                    onClick={()=>{
+                            encriptar(entrada,cambiarSalida,depuracion);
+                    }}
+                >
+                    Prosesar
+                
+                </button>
+                <Box nombre="Output" input={salida} funcion={cambiarSalida} />
+            </div>
+            <ButtonDev depuracion={depuracion} cambiarDepuracion={cambiarDepuracion}/>
+        </>
     );
 }
 

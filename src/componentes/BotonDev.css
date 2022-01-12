@@ -1,0 +1,50 @@
+.radio-container{
+    transform: translateY(40px);
+}
+
+.radio-container .labelButton {
+    display: block;
+    border-radius: 30px;
+    background-color: #cc0000;
+    box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.5) inset;
+    width: 100px;
+    height: 50px;
+    padding: 2.5px;
+    transition: .3s ease-in-out;
+}
+
+.radio-container #devButton {
+    display: none;
+}
+
+.radio-container #devButton:checked~.labelButton {
+    display: flex;
+    justify-content: end;
+    border-radius: 30px;
+    background-color: #f5e400;
+    box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.5) inset;
+    width: 100px;
+    height: 50px;
+    padding: 2.5px;
+}
+
+.radio-container span.circle {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #eee;
+}
+
+.radio-container #devButton:checked~.labelButton span.circle {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #eee;
+
+}

@@ -1,5 +1,6 @@
 .radio-container{
     transform: translateY(40px);
+    width: max-content;
 }
 
 .radio-container .labelButton {

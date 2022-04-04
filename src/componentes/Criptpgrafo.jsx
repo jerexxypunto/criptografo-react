@@ -5,6 +5,15 @@ import Box from './Box';
 
 let sal = "";
 
+function modoDev(event) {
+    const isCheked = event.target.parentElement.parentElement.children[0].checked;
+    if (isCheked) {
+        console.log('%cModo DEV encendido', 'color:green;');
+    } else {
+        console.log('%cModo DEV apagado', 'color:red;');
+    }
+}
+
 function encriptar(inPutBox,outPutBox,depuracion) {
     
     outPutBox("");

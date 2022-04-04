@@ -11,6 +11,8 @@
     height: 50px;
     padding: 2.5px;
     transition: .3s ease-in-out;
+    position: relative;
+    cursor: pointer;
 }
 
 .radio-container #devButton {
@@ -47,4 +49,14 @@
     border-radius: 50%;
     background-color: #eee;
 
+}
+
+.radio-container .wall-transparent{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: block;
+    position: absolute;
+    top:0;
+    left: 0;
 }

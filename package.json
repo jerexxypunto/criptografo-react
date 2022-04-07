@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.2.3",
     "terser-brunch": "^4.1.0"
   }
 }

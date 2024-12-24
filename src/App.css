@@ -1,0 +1,94 @@
+#root {
+  width: 100%;
+}
+
+.criptograph-container {
+  margin: 0 auto;
+  max-width: 800px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 80vh;
+}
+
+.form-container {
+  max-width: 800px;
+  width: 100%;
+}
+
+.output-box {
+
+  position: relative;
+  
+  .button {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .inside {
+    height: 50px;
+    
+
+    p span {
+      margin: 0 0.2px 0 0;
+      padding: 0;
+      display: block;
+      float: left;
+      font-size: 16px;
+      position: relative;
+
+      i {
+        font-style: normal;
+      }
+
+      .tool-tip {
+        display: none;
+      }
+
+    }
+
+    p span:hover {
+      color: #646cff;
+
+      .tool-tip {
+        display: grid;
+        place-content: center;
+        background-color: #fff;
+        width: 1.3em;
+        height: 1.3em;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        left: 0;
+        border-radius: 3px;
+
+      }
+
+    }
+
+    hr {
+      background-color: #000;
+    }
+
+  }
+}
+
+.head-app {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  tr {
+    box-shadow: 0 1px 0px  gray;
+  }
+
+  tr:last-child {
+    box-shadow: none;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+  }
+}

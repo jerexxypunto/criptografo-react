@@ -4,7 +4,7 @@ const redirectUrl = {
 };
 
 const relateivePath = [
-    '/secret-note-scribe/'
+    '/criptografo-react/'
 ];
 
 function redriectTo( path ){

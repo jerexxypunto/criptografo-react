@@ -2,6 +2,24 @@
   width: 100%;
 }
 
+.start-screen,
+.alert-screen{
+  margin: 0 auto;
+  max-width: 800px;
+  display: grid;
+  place-items: center;
+  height: 80vh;
+}
+
+.start-screen {
+  h2{
+    font-size: 4em;
+  }
+  p{
+    margin: 20px 0;
+  }
+}
+
 .criptograph-container {
   margin: 0 auto;
   max-width: 800px;
@@ -91,4 +109,101 @@
     padding: 10px;
     text-align: left;
   }
+
+  .historia-container {
+    .historia-preview {
+      margin-bottom: 0.5em;
+    }
+
+    .historia-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.5em;
+      padding: 0.1em 0.4em;
+      margin-left: 0.2em;
+      background: #646cff;
+      color: #fff;
+      font-size: 0.9em;
+      border-radius: 4px;
+      vertical-align: middle;
+    }
+
+    .historia-ver-mas {
+      padding: 0.35em 0.75em;
+      font-size: 0.9rem;
+      color: #646cff;
+      background: transparent;
+      border: 1px solid #646cff;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .historia-ver-mas:hover {
+      background: #646cff;
+      color: #fff;
+    }
+  }
+}
+
+.historia-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.historia-popup {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 520px;
+  width: 100%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.historia-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.historia-popup-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.historia-popup-cerrar {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #666;
+  cursor: pointer;
+  padding: 0 0.25rem;
+  transition: color 0.2s;
+}
+
+.historia-popup-cerrar:hover {
+  color: #000;
+}
+
+.historia-popup-body {
+  padding: 1.25rem;
+  overflow-y: auto;
+}
+
+.historia-popup-body p {
+  margin: 0;
+  line-height: 1.5;
 }
